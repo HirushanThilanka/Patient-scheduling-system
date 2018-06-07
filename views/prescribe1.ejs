@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <title>Doctor Dashboard</title>
+
+   <!-- Bootstrap core CSS -->
+   <link href="/css/bootstrap.min.css" rel="stylesheet">
+   <link href="/css/style.css" rel="stylesheet">
+   <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+
+ </head>
+
+ <body>
+
+   <nav class="navbar navbar-default">
+     <div class="container">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="sr-only">Toggle navigation</span>
+         </button>
+         <a class="navbar-brand" href="#">Doctor Dashboard</a>
+       </div>
+       <div id="navbar" class="collapse navbar-collapse">
+         <ul class="nav navbar-nav">
+          <li><a href="/doctor1">Paient List</a></li>
+          <li><a href="javascript: history.go(-1)">Get Patient</a></li>
+          <li class="active"><a href="/doctor1/getpatient1/prescribe1">Prescribe</a></li>
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+           <li class="active"><a href="#">Welcome, Doctor</a></li>
+           <li><a href="/login">Logout</a></li>
+         </ul>
+       </div><!--/.nav-collapse -->
+     </div>
+   </nav>
+
+
+   <header id="header">
+     <div class="container">
+       <div class="row">
+         <div class = col-md-10">
+           <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Doctor <small>Prescribe</small></h1>
+        </div>
+      </div>
+    </div>
+
+   </header>
+
+  <section id="breadcrumb">
+     <div class="container">
+      <ol class="breadcrumb">
+        <li class="active">Diabitic Clinic | Patient List | Get Patient  Prescribe </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <section id="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="list-group">
+            
+             <a href="/doctor1" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Patient List <span class="badge">30</span></a>
+             <a href="javascript: history.go(-1)" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Get Patient </a>
+             <a href="/doctor1/getpatient1/prescribe1" class="list-group-item active"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> Prescribe </a>
+            </div>
+          </div> 
+          
+         <div class="col-md-9">
+           
+          <div class="panel panel-default">
+            <div class="panel-heading main-color-bg">
+              <h3 class="panel-title"><%= reg_no %></h3>
+            </div>
+            <div class="panel-body">
+
+         
+            <form id="pdf" action="/doctor1/getpatient1/prescribe1/submit/<%= reg_no %>" method="POST" class="well">
+
+                  <table class="table table-striped table-hover">
+                              <tr>
+                                   <th>Number</th>
+                                   <th>Tablet</th>
+                                   <th>Type</th>
+                                 
+                             </tr>
+                                          
+                              <% for(var i = 0;i < tablet.length;i++) { %>
+                                            
+                             <tr>
+                                   <td><%= tablet[i].Number %></td>
+                                   <td><%= tablet[i].Tablet %></td>
+                                   <td>
+                                         
+                                              <select name="selected">
+
+                                              <%
+                                              var options = ["", "Three time daily ", "Twice daily", "Morning", "Night" ];
+                                              for ( var j = 0; j < options.length; j++ )
+                                              {
+                                                  var selected = ( tablet[i].Tablet == options[j] ) ? "selected" : "";
+                                                  %><option value="<%=options[ j ] %>"<%=selected %>><%=options[j] %></option><%
+
+                                              }
+                                              %>
+                                              </select>
+
+
+                                   </td>  
+                                                  
+                                              
+                             </tr>
+
+                            <% } %>  
+                        
+                   </table>
+
+                  <div class="form-group">
+                     <label for="description">Enter Description</label></br>
+                     <textarea rows="4" cols="70" name="description" >Enter text here...</textarea>
+                  </div> 
+
+
+
+                 <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+
+              </form>
+   
+             </div> 
+           </div>
+        </div>
+      </div>
+    </div>
+ </section>
+    
+
+  <!-- Bootstrap core JavaScript
+   ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ 
+ </body>
+</html>

@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <title>Admin | Patients</title>
+
+   <!-- Bootstrap core CSS -->
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link href="css/style.css" rel="stylesheet">
+   <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+
+ </head>
+
+ <body>
+
+   <nav class="navbar navbar-default">
+     <div class="container">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="#">Admin Dashboard</a>
+       </div>
+       <div id="navbar" class="collapse navbar-collapse">
+         <ul class="nav navbar-nav">
+           <li><a href="index.html">Dashboard</a></li>
+           <li><a href="Staff.html">Staff</a></li>
+           <li class="active"><a href="patients.html">Patients</a></li>
+           <li><a href="Reports.html">Reports</a></li>
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+           <li class="active"><a href="#">Welcome, Admin</a></li>
+           <li><a href="login.html">Logout</a></li>
+         </ul>
+       </div><!--/.nav-collapse -->
+     </div>
+   </nav>
+
+   <header id="header">
+     <div class="container">
+       <div class="row">
+         <div class = "col-md-10">
+           <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Patients <small>Manage Patients</small></h1>
+        </div>
+        <div class="col-md-2">
+          <div class="dropdown create">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Create Content
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a type="button" data-toggle="modal" data-target="#addStaff" >Add Staff</a></li>
+              <li><a type="button" data-toggle="modal" data-target="#addPatient">Add Patient</a></li>
+              <li><a type="button" data-toggle="modal" data-target="#addReports">Add Report</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   </header>
+
+   <section id="breadcrumb">
+     <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="index.html"></a>Dashboard</li>
+        <li class="active">Patients</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+             <a href="index.html" class="list-group-item active">
+               Dashboard
+             </a>
+             <a href="staff.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Staff<span class="badge">30</span></a>
+              <a href="patients.html" class="list-group-item"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>  Patients<span class="badge">30</span></a>
+             <a href="reports.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>  Reports<span class="badge">50</span></a>
+           </div>
+        </div>
+        <div class="col-md-9">
+
+          <!-- System overview -->
+              <div class="panel panel-default">
+              <div class="panel-heading main-color-bg">
+              <h3 class="panel-title">Patients</h3>
+            </div>
+            <div class="panel-body">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <input class="form-control" type="text" placeholder="Filter Patients">
+                </br>
+                </div>
+              </div>
+
+              <!-- Content table  -->
+
+              <table class="table table-striped table-hover">
+                <tr>
+                  <th>PatientID</th>
+                  <th>Name</th>
+                  <th>Created</th>
+                </tr>
+                <tr>
+                <td>101</td>
+                <td>Hirushan Thilanka</td>
+                <td>Dec 10, 2016</td>
+                <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger"href="#" >Delete</a></td>
+              </tr>
+
+              </tr>
+              <tr>
+              <td>102</td>
+              <td>Hirushan Thilanka</td>
+              <td>Dec 10, 2016</td>
+              <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger"href="#" >Delete</a></td>
+            </tr>
+
+              </tr>
+              <tr>
+              <td>103</td>
+              <td>Hirushan Thilanka</td>
+              <td>Dec 10, 2016</td>
+              <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger"href="#" >Delete</a></td>
+            </tr>
+
+          </table>
+
+
+            </div>
+          </div>
+
+
+ <!-- Modals -->
+
+ <!-- Add user -->
+
+ <div class="modal fade" id="addStaff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <form>
+      <div class="modal-body">
+        <div class="form-group">
+    <label for="userID">UserID</label>
+    <input type="UserID" class="form-control" id="userID" placeholder="User ID">
+  </div>
+
+  <div class="form-group">
+<label for="name">Name</label>
+<input type="name" class="form-control" id="name" placeholder="Full Name">
+</div>
+
+  <div class="form-group">
+    <label for="userRole">User Role</label>
+    <select class="form-control" id="userRole">
+      <option>Doctor</option>
+      <option>Reciptionist</option>
+      <option>Lab Assistant</option>
+    </select>
+  </div>
+  <div class="form-row">
+<div class="form-group col-md-6">
+<label for="password">Password</label>
+<input type="password" class="form-control" id="password" placeholder="Enter Password">
+</div>
+<div class="form-group col-md-6">
+<label for="repass">Re-type Password</label>
+<input type="password" class="form-control" id="repass" placeholder="Re-type Password">
+</div>
+</div>
+
+<div class="form-group">
+<label for="userID">UserID</label>
+<input type="UserID" class="form-control" id="userID" placeholder="User ID">
+</div>
+
+    </div>
+      <div class="modal-footer">
+        <div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add User</button>
+      </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- add patients -->
+
+<div class="modal fade" id="addPatient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+     </div>
+     <form>
+     <div class="modal-body">
+       <div class="form-group">
+   <label for="userID">UserID</label>
+   <input type="UserID" class="form-control" id="userID" placeholder="User ID">
+ </div>
+
+ <div class="form-group">
+<label for="name">Name</label>
+<input type="name" class="form-control" id="name" placeholder="Full Name">
+</div>
+
+ <div class="form-group">
+   <label for="userRole">User Role</label>
+   <select class="form-control" id="userRole">
+     <option>Doctor</option>
+     <option>Reciptionist</option>
+     <option>Lab Assistant</option>
+   </select>
+ </div>
+ <div class="form-row">
+<div class="form-group col-md-6">
+<label for="password">Password</label>
+<input type="password" class="form-control" id="password" placeholder="Enter Password">
+</div>
+<div class="form-group col-md-6">
+<label for="repass">Re-type Password</label>
+<input type="password" class="form-control" id="repass" placeholder="Re-type Password">
+</div>
+</div>
+
+<div class="form-group">
+<label for="userID">UserID</label>
+<input type="UserID" class="form-control" id="userID" placeholder="User ID">
+</div>
+
+   </div>
+     <div class="modal-footer">
+       <div>
+       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       <button type="button" class="btn btn-primary">Add User</button>
+     </div>
+     </div>
+   </form>
+   </div>
+ </div>
+</div>
+
+<!-- add reports -->
+
+<div class="modal fade" id="addReports" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+     </div>
+     <form>
+     <div class="modal-body">
+       <div class="form-group">
+   <label for="userID">UserID</label>
+   <input type="UserID" class="form-control" id="userID" placeholder="User ID">
+ </div>
+
+ <div class="form-group">
+<label for="name">Name</label>
+<input type="name" class="form-control" id="name" placeholder="Full Name">
+</div>
+
+ <div class="form-group">
+   <label for="userRole">User Role</label>
+   <select class="form-control" id="userRole">
+     <option>Doctor</option>
+     <option>Reciptionist</option>
+     <option>Lab Assistant</option>
+   </select>
+ </div>
+ <div class="form-row">
+<div class="form-group col-md-6">
+<label for="password">Password</label>
+<input type="password" class="form-control" id="password" placeholder="Enter Password">
+</div>
+<div class="form-group col-md-6">
+<label for="repass">Re-type Password</label>
+<input type="password" class="form-control" id="repass" placeholder="Re-type Password">
+</div>
+</div>
+
+<div class="form-group">
+<label for="userID">UserID</label>
+<input type="UserID" class="form-control" id="userID" placeholder="User ID">
+</div>
+
+   </div>
+     <div class="modal-footer">
+       <div>
+       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       <button type="button" class="btn btn-primary">Add User</button>
+     </div>
+     </div>
+   </form>
+   </div>
+ </div>
+</div>
+
+
+
+
+   <!-- Bootstrap core JavaScript
+   ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+ </body>
+</html>
